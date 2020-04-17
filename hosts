@@ -1,6 +1,6 @@
 [compute]
-192.168.1.214 server_hostname=nick-ansible1
-192.168.1.215 server_hostname=nick-ansible2
-
+192.168.1.127 server_hostname=junior-1
+192.168.1.128 server_hostname=junior-2
+192.168.1.129 server_hostname=junior-3
 [redis]
-192.168.1.214 server_hostname=nick-ansible1
+192.168.1.217 server_hostname=junior-1

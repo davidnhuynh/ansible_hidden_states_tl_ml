@@ -42,16 +42,16 @@
   when: libso_configured.changed
   become: yes
 
-- name: Clone github hidden_states_ta_ml
+- name: Clone github
   git:
-          repo: https://github.com/mobone/hidden_states_ta_ml.git
-          dest: "{{ ansible_env.HOME }}/hidden_states_ta_ml"
-          version: accuracy
+          repo: https://github.com/mobone/multi_machine.git
+          dest: "{{ ansible_env.HOME }}/multi_machine"
+          version: master
 
 - name: Install python library requirements
   pip:
           executable: pip3
-          chdir: "{{ ansible_env.HOME }}/hidden_states_ta_ml"
+          chdir: "{{ ansible_env.HOME }}/multi_machine"
           requirements: requirements.txt
           extra_args: --user
 
