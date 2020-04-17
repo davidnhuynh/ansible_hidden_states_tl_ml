@@ -1,0 +1,10 @@
+
+- name: apply common configuration to all hosts
+  hosts: all
+  roles:
+          - common
+
+- name: install python libraries on compute nodes
+  hosts: compute
+  roles:
+          - compute

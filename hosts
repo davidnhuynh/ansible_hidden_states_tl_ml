@@ -1,0 +1,6 @@
+[compute]
+192.168.1.214 server_hostname=nick-ansible1
+192.168.1.215 server_hostname=nick-ansible2
+
+[redis]
+192.168.1.214 server_hostname=nick-ansible1

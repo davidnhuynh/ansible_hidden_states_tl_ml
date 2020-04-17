@@ -1,0 +1,32 @@
+---
+# This playbook contains common tasks for all nodes.
+- name: Set hostname of server
+  hostname:
+          name: "{{ server_hostname }}"
+  become: yes
+
+- name: Install epel
+  dnf:
+          name: epel-release
+          state: present
+  become: yes
+
+- name: Install gcc, make, htop, python3-devel, git
+  dnf:
+          name: gcc,make,htop,python3-devel,git
+          state: present
+  become: yes
+
+- name: disable firewalld
+  systemd:
+          name: firewalld
+          state: stopped
+          enabled: no
+  become: yes
+
+- name: disable selinux
+  selinux:
+          state: disabled
+  become: yes
+  notify:
+          - reboot

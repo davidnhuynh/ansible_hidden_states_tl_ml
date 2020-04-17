@@ -1,0 +1,63 @@
+- name: Check if ta-lib is intalled
+  stat:
+          path: "/usr/local/lib/libta_lib.so.0.0.0"
+  register: talib_installed
+  
+- name: Download and Extract python ta-lib
+  unarchive:
+          src: http://prdownloads.sourceforge.net/ta-lib/ta-lib-0.4.0-src.tar.gz
+          dest: /tmp/
+          remote_src: yes
+  when: not talib_installed.stat.exists
+  register: talib_downloaded
+
+- name: Configure ta-lib with user prefix
+  command: "./configure"
+  args:
+          chdir: "/tmp/ta-lib"
+  when: talib_downloaded.changed
+  register: talib_configured
+
+- name: Install ta-lib python library
+  make:
+          chdir: /tmp/ta-lib
+          target: install
+  become: yes
+  when: talib_configured.changed
+  register: talib_installed
+
+- name: Copy libta.so.conf
+  copy: 
+        src: libta.so.conf
+        dest: /etc/ld.so.conf.d/libta.so.conf
+        owner: root
+        group: root
+        mode: a=r
+  become: yes
+  when: talib_installed.changed
+  register: libso_configured
+
+- name: Exec ldconfig
+  command: ldconfig
+  when: libso_configured.changed
+  become: yes
+
+- name: Clone github hidden_states_ta_ml
+  git:
+          repo: https://github.com/mobone/hidden_states_ta_ml.git
+          dest: "{{ ansible_env.HOME }}/hidden_states_ta_ml"
+          version: accuracy
+
+- name: Install python library requirements
+  pip:
+          executable: pip3
+          chdir: "{{ ansible_env.HOME }}/hidden_states_ta_ml"
+          requirements: requirements.txt
+          extra_args: --user
+
+- name: Install ta-lib python3 library
+  pip:
+          executable: pip3
+          name: ta-lib
+          extra_args: --user
+

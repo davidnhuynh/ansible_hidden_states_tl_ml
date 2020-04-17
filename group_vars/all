@@ -1,0 +1,4 @@
+ansible_ssh_user: nick
+ansible_ssh_pass: ansible1
+ansible_become_password: ansible1
+ansible_ssh_extra_args: "-o StrictHostKeyChecking=no"
