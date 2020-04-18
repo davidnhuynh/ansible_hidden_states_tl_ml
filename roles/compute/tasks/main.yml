@@ -82,7 +82,7 @@
     update: yes
 
 - name: Stop Workers
-  command: pkill -9 rq
+  command: pkill -15 rq
   become: yes
 
 - name: Start workers
