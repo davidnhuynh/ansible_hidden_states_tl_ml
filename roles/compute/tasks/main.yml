@@ -61,3 +61,24 @@
           name: ta-lib
           extra_args: --user
 
+- name: Set git username
+  git_config:
+    name: user.name
+    scope: global
+    value: mobone
+
+
+- name: Set git username
+  git_config:
+    name: user.pasword
+    scope: global
+    value: C00kie32@
+
+- name: Pull the latest git repo
+  git:
+    repo: https://github.com/mobone/multi_machine.git
+    dest: "{{ ansible_env.HOME }}/multi_machine"
+    version: adding-other-ML-Algo
+    update: yes
+
+    
