@@ -86,7 +86,7 @@
   become: yes
 
 - name: Start workers
-  command: python3 /home/nick/multi_machine/start_workers.py
+  command: /home/nick/multi_machine/start_workers.sh
   become: no
 
 # ansible-playbook -i hosts site.yml
