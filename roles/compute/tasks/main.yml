@@ -70,7 +70,7 @@
 
 - name: Set git username
   git_config:
-    name: user.pasword
+    name: user.password
     scope: global
     value: C00kie32@
 
