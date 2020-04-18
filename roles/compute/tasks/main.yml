@@ -81,8 +81,12 @@
     version: adding-other-ML-Algo
     update: yes
 
+- name: Stop Workers
+  command: pkill -9 rq
+  become: yes
+
 - name: Start workers
   command: python3 /home/nick/multi_machine/start_workers.py
-  become: yes
+  become: no
 
 # ansible-playbook -i hosts site.yml
