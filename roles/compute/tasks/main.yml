@@ -85,6 +85,9 @@
   command: pkill -15 rq
   become: yes
 
+- name: Change perm on start_workers script
+  file: dest=/home/nick/multi_machine/start_workers.sh mode=a+x
+
 - name: Start workers
   command: /home/nick/multi_machine/start_workers.sh
   become: no
