@@ -89,6 +89,6 @@
 
 - name: Start workers
   command: "/home/nick/multi_machine/start_workers.sh"
-  become: yes
+  become: no
 
 # ansible-playbook -i hosts site.yml
