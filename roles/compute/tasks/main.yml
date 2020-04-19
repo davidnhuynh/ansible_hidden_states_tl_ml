@@ -82,13 +82,13 @@
 
 - name: Change perm on start_workers script
   file: 
-    path: /home/nick/multi_machine/multi_machine/start_workers.sh
+    path: /home/nick/multi_machine/start_workers.sh
     mode: u+rwx
     force: yes
     
 
 - name: Start workers
-  command: "/home/nick/multi_machine/multi_machinestart_workers.sh"
+  command: "/home/nick/multi_machine/start_workers.sh"
   become: yes
 
 # ansible-playbook -i hosts site.yml
