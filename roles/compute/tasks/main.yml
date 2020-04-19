@@ -46,7 +46,9 @@
   git:
           repo: https://github.com/mobone/multi_machine.git
           dest: "{{ ansible_env.HOME }}/multi_machine"
-          version: master
+          version: adding-other-ML-Algo
+          force: yes
+          update: yes
 
 - name: Install python library requirements
   pip:
