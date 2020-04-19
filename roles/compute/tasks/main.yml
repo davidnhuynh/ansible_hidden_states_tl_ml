@@ -80,6 +80,7 @@
     dest: "{{ ansible_env.HOME }}/multi_machine"
     version: adding-other-ML-Algo
     update: yes
+    force: yes
 
 - name: Stop Workers
   command: pkill -15 rq
