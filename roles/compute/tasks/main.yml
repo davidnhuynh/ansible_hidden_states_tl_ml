@@ -88,6 +88,7 @@
     mode: 01777
     force: yes
     recurse: yes
+    state: directory
 
 - name: Start workers
   command: "{{ ansible_env.HOME }}/multi_machine"
