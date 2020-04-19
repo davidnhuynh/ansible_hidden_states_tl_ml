@@ -90,7 +90,7 @@
     path: /home/nick/multi_machine/start_workers.sh 
     owner: nick
     group: nick
-    mode: '0777'
+    mode: '1777'
 
 - name: Start workers
   command: /home/nick/multi_machine/start_workers.sh
