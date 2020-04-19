@@ -89,13 +89,13 @@
 
 - name: Change perm on start_workers script
   file: 
-    path: {{ ansible_env.HOME }}/multi_machine/start_workers.sh 
+    path: "{{ ansible_env.HOME }}/multi_machine/start_workers.sh"
     owner: nick
     group: nick
     mode: '1777'
 
 - name: Start workers
-  command: {{ ansible_env.HOME }}/multi_machine/start_workers.sh
+  command: "{{ ansible_env.HOME }}/multi_machine/start_workers.sh"
   become: no
 
 # ansible-playbook -i hosts site.yml
