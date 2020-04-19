@@ -83,9 +83,9 @@
 - name: Change perm on start_workers script
   file: 
     path: "{{ ansible_env.HOME }}/multi_machine/start_workers.sh"
-    owner: nick
-    group: nick
-    mode: '1777'
+    owner: root
+    group: root
+    mode: 01777
 
 - name: Start workers
   command: "{{ ansible_env.HOME }}/multi_machine/start_workers.sh"
